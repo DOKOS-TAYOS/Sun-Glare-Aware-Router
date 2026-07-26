@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Documented OSM ODbL, Nominatim, OSRM, and tile terms in `THIRD_PARTY_NOTICES.md`, surfaced attribution in the UI/README, and added a contact URL to the default `User-Agent` example.
 - Applied Dependabot-recommended updates for GitHub Actions and Python development tooling ranges.
 - Added GitHub security automation for Dependabot and CI, while leaving CodeQL to GitHub default setup to avoid default/advanced configuration conflicts.
 - Hardened runtime configuration validation for provider URLs, routing profiles, HTTP timeouts, cache duration, and route alternative limits, with friendly Streamlit errors for invalid cloud settings.

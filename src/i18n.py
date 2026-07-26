@@ -84,6 +84,12 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "scoring.modifier.clearly": "claramente",
         "scoring.modifier.noticeably": "de forma apreciable",
         "scoring.modifier.slightly": "ligeramente",
+        "ui.attribution": (
+            "Datos de mapa © [contribuidores de OpenStreetMap](https://www.openstreetmap.org/copyright) "
+            "([ODbL](https://opendatacommons.org/licenses/odbl/)); "
+            "geocodificación Nominatim; rutas OSRM; teselas OpenStreetMap. "
+            "Mantén visible la atribución del mapa."
+        ),
     },
     "en": {
         "ui.language_label": "Idioma / Language",
@@ -164,6 +170,12 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "scoring.modifier.clearly": "clearly",
         "scoring.modifier.noticeably": "noticeably",
         "scoring.modifier.slightly": "slightly",
+        "ui.attribution": (
+            "Map data © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright) "
+            "([ODbL](https://opendatacommons.org/licenses/odbl/)); "
+            "geocoding via Nominatim; routing via OSRM; tiles from OpenStreetMap. "
+            "Keep map attribution visible."
+        ),
     },
 }
 

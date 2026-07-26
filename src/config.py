@@ -162,7 +162,10 @@ def load_settings() -> Settings:
             os.getenv("SUNROUTER_ROUTING_PROFILE", "driving")
         ),
         user_agent=_validate_user_agent(
-            os.getenv("SUNROUTER_USER_AGENT", "sun-glare-router/0.1.0")
+            os.getenv(
+                "SUNROUTER_USER_AGENT",
+                "sun-glare-router/0.1.0 (+https://github.com/DOKOS-TAYOS/Sun-Glare-Aware-Router)",
+            )
         ),
         http_timeout_s=http_timeout_s,
         cache_ttl_s=cache_ttl_s,

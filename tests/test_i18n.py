@@ -20,3 +20,14 @@ def test_spanish_reverse_geocode_warning_is_human_readable() -> None:
         t("es", "picker.reverse_geocode_warning")
         == "No se pudo obtener el nombre exacto del punto. Se usará el texto escrito o las coordenadas."
     )
+
+
+def test_attribution_mentions_openstreetmap_and_odbl() -> None:
+    spanish = t("es", "ui.attribution")
+    english = t("en", "ui.attribution")
+
+    assert "OpenStreetMap" in spanish
+    assert "ODbL" in spanish
+    assert "OpenStreetMap" in english
+    assert "ODbL" in english
+    assert "openstreetmap.org/copyright" in english

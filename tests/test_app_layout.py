@@ -33,6 +33,9 @@ def test_app_renders_information_and_main_panel_controls() -> None:
     assert "Origen" in subheaders
     assert "Destino" in subheaders
     assert "Generar rutas" in button_labels
+    caption_text = " ".join(item.value for item in at.caption)
+    assert "OpenStreetMap" in caption_text
+    assert "ODbL" in caption_text
 
 
 def test_app_defaults_to_spanish_language_selector() -> None:

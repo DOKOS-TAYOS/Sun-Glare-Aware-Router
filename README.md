@@ -165,7 +165,7 @@ The app is configured through environment variables.
 | `SUNROUTER_ROUTER_MIN_INTERVAL_S` | Minimum delay between routing calls | `1.0` |
 | `SUNROUTER_ROUTING_PROFILE` | Routing profile name | `driving` |
 | `SUNROUTER_MAX_ALTERNATIVES` | Maximum number of candidate routes kept | `3` |
-| `SUNROUTER_USER_AGENT` | Request header for public providers | `sun-glare-router/0.1.0` |
+| `SUNROUTER_USER_AGENT` | Request header for public providers (include a contact URL or email) | `sun-glare-router/0.1.0 (+https://github.com/DOKOS-TAYOS/Sun-Glare-Aware-Router)` |
 | `SUNROUTER_HTTP_TIMEOUT_S` | HTTP timeout in seconds | `10` |
 | `SUNROUTER_CACHE_TTL_S` | In-memory cache duration in seconds | `900` |
 | `SUNROUTER_DEFAULT_TIMEZONE` | Default IANA timezone in the UI | `Europe/Madrid` |
@@ -175,11 +175,13 @@ The app is configured through environment variables.
 
 The default configuration uses public OpenStreetMap ecosystem services:
 
-- Nominatim for geocoding and reverse geocoding,
-- an OSRM-compatible endpoint for routing,
-- OpenStreetMap-based tiles for map display.
+- Nominatim for geocoding and reverse geocoding ([usage policy](https://operations.osmfoundation.org/policies/nominatim/)),
+- an OSRM-compatible endpoint for routing (public demo only; prefer self-hosting for real traffic),
+- OpenStreetMap-based tiles for map display ([tile usage policy](https://operations.osmfoundation.org/policies/tiles/)).
 
-That is convenient for local demos and light experimentation, but it is not suitable for heavy production traffic. For more demanding use cases, point the app to your own infrastructure or to supported third-party services with appropriate usage terms.
+OSM map data is under the [Open Database License (ODbL)](https://opendatacommons.org/licenses/odbl/) — © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright). Set `SUNROUTER_USER_AGENT` to a descriptive string that includes a contact URL or email before hitting public providers.
+
+That is convenient for local demos and light experimentation, but it is not suitable for heavy production traffic. For more demanding use cases, point the app to your own infrastructure or to supported third-party services with appropriate usage terms. See `THIRD_PARTY_NOTICES.md` for a fuller summary.
 
 ## Swapping Providers
 
@@ -256,7 +258,7 @@ The automated tests avoid live network calls and focus on the parts that matter 
 
 ## License And Attribution
 
-- The repository code is released under the MIT License.
-- Runtime dependency notices are listed in `THIRD_PARTY_NOTICES.md`.
-- OpenStreetMap data terms and public service usage policies still apply separately.
-- Map attribution must remain visible when OpenStreetMap-derived tiles are used.
+- The repository code is released under the [MIT License](LICENSE).
+- Runtime libraries and OSM/Nominatim/OSRM/tile notices are listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+- OpenStreetMap data is © OpenStreetMap contributors and licensed under [ODbL](https://opendatacommons.org/licenses/odbl/); public Nominatim, OSRM demo, and tile policies still apply separately.
+- Map attribution must remain visible when OpenStreetMap-derived tiles are used (do not hide the Leaflet credit control). The app also shows a short data-source caption in the UI.

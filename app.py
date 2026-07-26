@@ -923,6 +923,8 @@ def main() -> None:
     if saved_result_to_render is not None:
         render_comparison_table(saved_result_to_render, language)
 
+    st.caption(t(language, "ui.attribution"))
+
 
 if __name__ == "__main__":
     main()

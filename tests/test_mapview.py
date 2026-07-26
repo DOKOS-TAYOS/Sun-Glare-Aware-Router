@@ -13,6 +13,36 @@ from src.models import (
 )
 
 
+def test_build_route_map_keeps_openstreetmap_tile_attribution() -> None:
+    origin = Coordinates(lat=40.4168, lon=-3.7038)
+    destination = Coordinates(lat=42.3439, lon=-3.6969)
+    route = Route(
+        route_id="route-1",
+        geometry=[origin, Coordinates(lat=41.1, lon=-3.7), destination],
+        metrics=RouteMetrics(distance_m=240000.0, duration_s=9000.0),
+        metadata={"route_index": 1},
+    )
+    evaluation = RouteEvaluation(
+        route=route,
+        glare_score=24.5,
+        total_length_m=240000.0,
+        peak_segment_score=310.0,
+        aligned_distance_m=60000.0,
+    )
+
+    route_map = build_route_map(
+        origin=origin,
+        destination=destination,
+        evaluations=[evaluation],
+        recommended_route_id="route-1",
+    )
+
+    rendered = route_map.get_root().render()
+
+    assert "OpenStreetMap" in rendered
+    assert "openstreetmap.org/copyright" in rendered
+
+
 def test_build_route_map_highlights_peak_risk_segment() -> None:
     origin = Coordinates(lat=40.4168, lon=-3.7038)
     midpoint = Coordinates(lat=40.9000, lon=-3.7000)

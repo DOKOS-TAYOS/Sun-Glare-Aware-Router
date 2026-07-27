@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
-from src.http_client import SystemSSLContextAdapter
 from src.geocoding import NominatimGeocoder
+from src.http_client import SystemSSLContextAdapter
 from src.models import Coordinates
 from src.routing import OSRMRouter
 

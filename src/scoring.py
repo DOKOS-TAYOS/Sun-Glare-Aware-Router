@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from datetime import datetime, timedelta
 import logging
 import math
-from typing import Callable
+from collections.abc import Callable
+from datetime import datetime, timedelta
 
 from src.i18n import t
 from src.models import (

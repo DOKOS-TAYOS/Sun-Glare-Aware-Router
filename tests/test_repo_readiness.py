@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from pathlib import Path
 import shutil
+from pathlib import Path
 
 from src import config
 
@@ -17,12 +17,10 @@ def test_load_settings_reads_values_from_project_dotenv(monkeypatch) -> None:
     monkeypatch.delenv("SUNROUTER_ROUTER_BASE_URL", raising=False)
     monkeypatch.delenv("SUNROUTER_MAX_ALTERNATIVES", raising=False)
     Path(".env").write_text(
-        "\n".join(
-            [
-                "SUNROUTER_DEFAULT_TIMEZONE=UTC",
-                "SUNROUTER_ROUTER_BASE_URL=https://example.test/route/v1",
-                "SUNROUTER_MAX_ALTERNATIVES=5",
-            ]
+        (
+            "SUNROUTER_DEFAULT_TIMEZONE=UTC\n"
+            "SUNROUTER_ROUTER_BASE_URL=https://example.test/route/v1\n"
+            "SUNROUTER_MAX_ALTERNATIVES=5"
         ),
         encoding="utf-8",
     )

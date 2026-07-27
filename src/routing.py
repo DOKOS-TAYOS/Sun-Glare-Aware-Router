@@ -1,10 +1,9 @@
 from __future__ import annotations
 
-from dataclasses import replace
 import logging
 import math
+from dataclasses import replace
 from typing import Protocol
-
 
 from src.cache import RateLimiter, TTLCache
 from src.config import Settings

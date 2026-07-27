@@ -85,7 +85,7 @@ def format_distance_km(distance_m: float) -> str:
 
 
 def format_duration_minutes(duration_s: float) -> str:
-    total_minutes = int(round(duration_s / 60.0))
+    total_minutes = round(duration_s / 60.0)
     hours, minutes = divmod(total_minutes, 60)
     if hours:
         return f"{hours}h {minutes}m"

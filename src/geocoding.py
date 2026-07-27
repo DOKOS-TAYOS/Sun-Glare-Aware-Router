@@ -3,7 +3,6 @@ from __future__ import annotations
 import logging
 from typing import Protocol
 
-
 from src.cache import RateLimiter, TTLCache
 from src.config import Settings
 from src.http_client import build_http_session

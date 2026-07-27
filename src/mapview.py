@@ -1,8 +1,9 @@
 from __future__ import annotations
 
+from typing import cast
+
 import folium
 from branca.element import Element, Figure
-from typing import cast
 
 from src.i18n import t
 from src.models import (

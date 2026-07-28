@@ -3,13 +3,7 @@ name: CI
 on:
   push:
     branches: ["main"]
-    paths-ignore:
-      - "**/*.md"
-      - "docs/**"
   pull_request:
-    paths-ignore:
-      - "**/*.md"
-      - "docs/**"
   workflow_dispatch:
 
 permissions:
@@ -53,3 +47,27 @@ jobs:
 
       - name: Run tests
         run: python -m pytest
+
+  required-pr-ci:
+    name: ${{ github.event_name == 'pull_request' && 'required-pr-ci' || 'push-ci-summary' }}
+    if: ${{ always() }}
+    needs:
+      - checks
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Validate required jobs
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          CHECKS_RESULT: ${{ needs.checks.result }}
+        run: |
+          set -euo pipefail
+
+          if [[ "${CHECKS_RESULT}" != "success" ]]; then
+            echo "Required job checks finished with '${CHECKS_RESULT}', expected success."
+            exit 1
+          fi
+
+          echo "All required jobs passed."

@@ -1,3 +1,7 @@
+> [!IMPORTANT]
+> **Frozen / unmaintained repository.**
+> This project is no longer maintained and is kept online only for its existing Streamlit deployment.
+
 # Sun-Glare-Aware Router
 
 `Sun-Glare-Aware Router` is a Streamlit app that compares driving route alternatives and estimates which one is less likely to put low sun directly in front of the driver.
